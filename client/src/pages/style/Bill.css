@@ -1,0 +1,100 @@
+.bill-container {
+    background: #f9f9f9;
+    min-height: 100vh;
+    padding: 20px;
+    animation: fadeIn 0.8s ease-in-out;
+}
+
+.bill-title {
+    text-align: center;
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 10px;
+}
+
+.bill-info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 15px;
+    padding: 10px;
+    background: #fff;
+    border-radius: 6px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.bill-items {
+    background: white;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 15px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+.bill-item {
+    display: flex;
+    justify-content: space-between;
+    padding: 6px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.bill-item:last-child {
+    border-bottom: none;
+}
+
+.bill-total {
+    font-size: 22px;
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #222;
+}
+
+.bill-btn-container {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.back-btn, .pay-btn, .print-btn {
+    padding: 10px 15px;
+    font-size: 15px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+}
+
+.back-btn {
+    background: #ff4d4d;
+    color: white;
+}
+
+.pay-btn {
+    background: #007bff;
+    color: white;
+}
+
+.print-btn {
+    background: #4caf50;
+    color: white;
+}
+
+.back-btn:hover { background: #e60000; }
+.pay-btn:hover { background: #0056b3; }
+.print-btn:hover { background: #3d8b3d; }
+
+/* Hide buttons on print */
+@media print {
+    .no-print {
+        display: none !important;
+    }
+    body {
+        background: white;
+    }
+    .bill-container {
+        box-shadow: none;
+        border: none;
+        background: white;
+    }
+}
+

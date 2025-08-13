@@ -1,0 +1,126 @@
+.navbar {
+  background-color: #1f2937;
+  padding: 1rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.navbar-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.navbar-logo {
+  font-size: 1.5rem;
+  height: 100px;
+  width: 100px ;
+  color: white;
+  font-weight: bold;
+  text-decoration: none;
+  padding: 0.5rem;
+}
+.navbar-text {
+  color: white;
+  font-size: 1.5rem;
+  font-weight: bold;
+  text-decoration: none;
+  margin-left: 0.5rem;
+} 
+
+.menu-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+}
+
+.menu-link {
+  color: #d1d5db;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background 0.3s, color 0.3s;
+}
+
+.menu-link:hover {
+  color: white;
+  background-color: #374151;
+}
+
+.login-button, .logout-button {
+  background: #10b981;
+  color: white;
+  border: none;
+  padding: 0.5rem 1rem;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.logout-button {
+  background: #ef4444;
+}
+
+.login-button:hover {
+  background: #059669;
+}
+
+.logout-button:hover {
+  background: #dc2626;
+}
+
+.mobile-toggle {
+  display: none;
+}
+
+.menu-button {
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+.menu-icon {
+  width: 24px;
+  height: 24px;
+  stroke: white;
+}
+
+
+@media (max-width: 768px) {
+  .mobile-toggle {
+    display: block;
+  }
+
+  .menu-list {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    background: #1f2937;
+    top: 100%;
+    left: 0;
+    right: 0;
+    padding: 1rem;
+    border-radius: 0 0 8px 8px;
+  }
+
+  .menu-list.open {
+    display: flex;
+  }
+
+  .menu-link {
+    display: block;
+  }
+
+  .login-button, .logout-button {
+    width: 100%;
+    text-align: center;
+  }
+}
+.menu-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+}

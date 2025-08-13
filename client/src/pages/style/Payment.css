@@ -1,0 +1,347 @@
+/* @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap');
+
+/* Base styles for the entire payment page */
+.payment-container {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1.5rem; /* Equivalent to p-6 */
+    background: linear-gradient(135deg, #f0f4f8 0%, #d9e2ec 100%); /* Soft gradient background */
+    font-family: 'Inter', sans-serif;
+    color: #333;
+    box-sizing: border-box;
+    animation: fadeIn 0.8s ease-out forwards; /* Initial page load animation */
+    position: relative; /* For absolute positioning of popup */
+}
+
+/* Main content card for better visual grouping */
+.payment-card {
+    background-color: #ffffff;
+    border-radius: 1.5rem; /* More rounded corners */
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1); /* Deeper shadow */
+    padding: 2.5rem; /* More padding */
+    width: 100%;
+    max-width: 32rem; /* Max width for content */
+    box-sizing: border-box;
+    text-align: center;
+    position: relative; /* For z-index context */
+    z-index: 1;
+}
+
+/* Page Title */
+.payment-title {
+    font-size: 2.5rem; /* Larger title */
+    font-weight: 800; /* Extra bold */
+    color: #2c3e50; /* Darker text for contrast */
+    margin-bottom: 2rem; /* More space below title */
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.05);
+}
+
+/* Amount Popup */
+.amount-popup {
+    position: absolute;
+    top: 1.5rem; /* Position at the top */
+    right: 1.5rem;
+    background-color: #4CAF50; /* Green background */
+    color: white;
+    padding: 0.8rem 1.2rem;
+    border-radius: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 600;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    animation: bounceIn 1s ease-out forwards; /* Bounce animation */
+    z-index: 10; /* Ensure it's on top */
+}
+
+.amount-popup span {
+    font-size: 1.3rem;
+    font-weight: 800;
+    margin-left: 0.5rem;
+}
+
+/* Payment Options Grid */
+.payment-options {
+    display: grid;
+    grid-template-columns: 1fr; /* Single column by default */
+    gap: 1rem; /* Space between options */
+    margin-bottom: 2rem;
+    width: 100%;
+}
+
+.option-label {
+    display: flex;
+    align-items: center;
+    background-color: #f8f9fa; /* Light background for each option */
+    padding: 1rem 1.2rem;
+    border-radius: 0.75rem;
+    border: 2px solid #e0e0e0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    color: #555;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+}
+
+.option-label:hover {
+    border-color: #a7d9f8; /* Lighter blue on hover */
+    background-color: #eaf6fd; /* Lighter background on hover */
+    transform: translateY(-3px); /* Subtle lift effect */
+}
+
+.option-label input[type="radio"] {
+    display: none; /* Hide default radio button */
+}
+
+.radio-custom {
+    width: 1.2rem;
+    height: 1.2rem;
+    border: 2px solid #999;
+    border-radius: 50%;
+    margin-right: 0.8rem;
+    position: relative;
+    transition: all 0.3s ease;
+    flex-shrink: 0; /* Prevent shrinking */
+}
+
+.option-label input[type="radio"]:checked + .radio-custom {
+    background-color: #3498db; /* Blue when checked */
+    border-color: #3498db;
+    box-shadow: 0 0 0 4px rgba(52, 152, 219, 0.3); /* Outer glow */
+}
+
+.option-label input[type="radio"]:checked + .radio-custom::after {
+    content: '';
+    width: 0.6rem;
+    height: 0.6rem;
+    background-color: white;
+    border-radius: 50%;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: block;
+    animation: radioCheck 0.3s ease-out; /* Pop animation */
+}
+
+/* Payment Form (conditional rendering) */
+.payment-form {
+    background-color: #fdfdfd;
+    border-radius: 1rem;
+    padding: 1.5rem;
+    border: 1px solid #eee;
+    margin-bottom: 2rem;
+    width: 100%;
+    box-sizing: border-box;
+    animation: slideInUp 0.5s ease-out forwards; /* Slide in animation */
+}
+
+.payment-form div {
+    margin-bottom: 1rem;
+}
+
+.payment-form label {
+    display: block;
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    color: #444;
+}
+
+.payment-form input,
+.payment-form select {
+    width: 100%;
+    padding: 0.8rem 1rem;
+    border: 1px solid #ddd;
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+    box-sizing: border-box;
+}
+
+.payment-form input:focus,
+.payment-form select:focus {
+    outline: none;
+    border-color: #3498db;
+    box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.cod-text {
+    font-style: italic;
+    color: #666;
+    text-align: center;
+    padding: 1rem;
+    background-color: #e9f5e9;
+    border-radius: 0.5rem;
+    border: 1px solid #d4edda;
+}
+
+/* Buttons */
+.payment-buttons {
+    display: flex;
+    justify-content: space-between;
+    gap: 1rem;
+    width: 100%;
+}
+
+.btn {
+    flex: 1; /* Distribute space evenly */
+    padding: 0.9rem 1.5rem;
+    border: none;
+    border-radius: 0.75rem;
+    font-size: 1.1rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.cancel-btn,
+.confirm-pay-btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    margin: 0 0.5rem;
+    min-width: 120px;
+}
+
+/* Cancel (Red) Button */
+.cancel-btn {
+    background-color: #e74c3c;
+    color: white;
+}
+
+.cancel-btn:hover {
+    background-color: #c0392b;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Confirm (Green) Button */
+.confirm-pay-btn {
+    background-color: #2ecc71;
+    color: white;
+}
+
+.confirm-pay-btn:hover {
+    background-color: #27ae60;
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 6px 14px rgba(0, 0, 0, 0.2);
+}
+
+/* Custom Message Box */
+.custom-message-box {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    text-align: center;
+    animation: fadeIn 0.3s ease-out forwards;
+    max-width: 90%;
+    font-size: 1.1rem;
+    font-weight: 500;
+}
+
+.custom-message-box.error {
+    border: 2px solid #e74c3c;
+    color: #e74c3c;
+}
+
+.custom-message-box.success {
+    border: 2px solid #2ecc71;
+    color: #2ecc71;
+}
+
+.custom-message-box button {
+    margin-top: 1.5rem;
+    padding: 0.7rem 1.5rem;
+    border: none;
+    border-radius: 0.5rem;
+    background-color: #3498db;
+    color: white;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background-color 0.3s ease;
+}
+
+.custom-message-box button:hover {
+    background-color: #2980b9;
+}
+
+/* Animations Keyframes */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.3);
+    }
+    50% {
+        opacity: 1;
+        transform: scale(1.05);
+    }
+    70% {
+        transform: scale(0.9);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes radioCheck {
+    0% { transform: translate(-50%, -50%) scale(0); }
+    80% { transform: translate(-50%, -50%) scale(1.2); }
+    100% { transform: translate(-50%, -50%) scale(1); }
+}
+
+/* Media Queries for Responsiveness */
+@media (min-width: 640px) { /* Small screens and up */
+    .payment-options {
+        grid-template-columns: 1fr 1fr; /* Two columns for options */
+    }
+    .payment-buttons {
+        flex-direction: row; /* Buttons in a row */
+    }
+}
+
+@media (min-width: 768px) { /* Medium screens and up */
+    .payment-card {
+        max-width: 38rem; /* Slightly wider card */
+    }
+    .payment-title {
+        font-size: 3rem; /* Larger title on tablets/desktops */
+    }
+}
+
+@media (min-width: 1024px) { /* Large screens and up */
+    .payment-card {
+        max-width: 45rem; /* Even wider card on larger screens */
+    }
+    .payment-options {
+        grid-template-columns: repeat(3, 1fr); /* Three columns for options */
+    }
+}

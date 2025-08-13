@@ -1,0 +1,104 @@
+/* Main container - vertical layout */
+.admin-container {
+    min-height: 100vh;
+    background-color: #f3f4f6;
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    animation: fadeIn 0.6s ease-out;
+}
+
+/* Top Navigation Panel */
+.nav-panel {
+    background-color: #203846;
+    color: #ffffff;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    display: flex;
+    justify-content: space-between;   /* Spread items across */
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+    animation: slideInDown 0.5s ease-out;
+}
+
+/* Navigation heading stays on left */
+.nav-heading {
+    font-size: 1.25rem;
+    font-weight: 700;
+    font-family: 'Inter', sans-serif;
+    animation: fadeIn 0.5s ease-out;
+}
+
+/* Navigation buttons aligned in row */
+.nav-buttons-container {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.nav-button {
+    padding: 0.5rem 1rem;
+    border-radius: 0.375rem;
+    color: #d1d5db;
+    font-size: 1rem;
+    font-family: 'Inter', sans-serif;
+    transition: background-color 0.3s ease, color 0.3s ease, transform 0.2s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.nav-button:hover {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+.nav-button-active {
+    background-color: #374151;
+    color: #ffffff;
+}
+
+/* Content panel below top nav */
+.content-panel {
+    flex: 1;
+    background-color: #ffffff;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: slideInUp 0.5s ease-out;
+}
+
+/* Animations */
+@keyframes slideInDown {
+    from { transform: translateY(-20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+@keyframes slideInUp {
+    from { transform: translateY(20px); opacity: 0; }
+    to { transform: translateY(0); opacity: 1; }
+}
+
+/* Staggered animation for buttons */
+.nav-button:nth-child(1) { animation-delay: 0.1s; }
+.nav-button:nth-child(2) { animation-delay: 0.2s; }
+.nav-button:nth-child(3) { animation-delay: 0.3s; }
+.nav-button:nth-child(4) { animation-delay: 0.4s; }
+.nav-button:nth-child(5) { animation-delay: 0.5s; }
+.nav-button:nth-child(6) { animation-delay: 0.6s; }
+
+/* Mobile optimization */
+@media (max-width: 767px) {
+    .nav-panel {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .nav-buttons-container {
+        flex-wrap: wrap;
+        width: 100%;
+    }
+}
