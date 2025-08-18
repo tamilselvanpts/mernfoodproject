@@ -2,7 +2,7 @@ import React, { useState, useContext } from 'react';
 import api from '../../api/api';
 import AuthContext from '../../context/AuthContext';
 import Message from '../../components/Message';
-import '../style/AddRole.css'; // Assuming you have some styles for this component
+import '../style/Addrole.css'; // Assuming you have some styles for this component
 
 const AddRole = ({ restaurantId }) => {
     const { user } = useContext(AuthContext); // Current admin user
