@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import '../style/Home.css';
+import '../style/home.css';
 
 const Home = () => (
   <div className="home-container">
