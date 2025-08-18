@@ -77,13 +77,13 @@ const Profile = () => {
             <div className="profile-card">
                 <h2 className="profile-title">Your Profile</h2>
 
-                {/* {user.role === 'customer' && (
+                {user.role === 'customer' && (
                     <div className="register-link">
                         <Link to="/register-restaurant" className="register-button">
                             Register Restaurant (Become Admin)
                         </Link>
                     </div>
-                )} */}
+                )}
 
                 <div className="tab-switch">
                     <button
