@@ -6,7 +6,7 @@ import Navbar from './components/Navbar';
 import PrivateRoute from './components/PrivateRoute';
 
 // Customer Pages
-import Home from './pages/customer/home';
+
 import Menu from './pages/customer/Menu';
 import TableBooking from './pages/customer/TableBooking';
 import Auth from './pages/customer/Auth'; // Login/Register
@@ -25,6 +25,7 @@ import ChefPage from './pages/employee/ChefPage';
 import CashierPage from './pages/employee/CashierPage';
 import { CartProvider } from './context/CartContext';
 import Success from './pages/customer/Success';
+import Homepage from './pages/customer/Homepage';
 
 const AppContent = () => {
     const { user, loading } = useContext(AuthContext);
@@ -41,7 +42,7 @@ const AppContent = () => {
             <Navbar />
             <Routes>
                 {/* Public Routes */}
-                <Route path="/" element={<Home />} />
+                <Route path="/" element={<Homepage />} />
                 <Route path="/menu" element={<Menu />} />
                 <Route path="/auth" element={<Auth />} />
 

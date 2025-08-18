@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import '../style/home.css';
 
-const Home = () => (
+const Homepage = () => (
   <div className="home-container">
     {/* Hero Section */}
     <section className="hero-section">
@@ -83,4 +83,4 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+export default Homepage;
