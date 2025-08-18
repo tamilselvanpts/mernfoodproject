@@ -85,7 +85,7 @@ const RegisterRestaurant = () => {
             <div className="form-card">
                 <h2 className="form-heading">Register Your Restaurant</h2>
                 <form onSubmit={handleSubmit} className="register-form">
-                    {/* <div className="form-grid">
+                    <div className="form-grid">
                         <div>
                             <label htmlFor="name" className="form-label">Restaurant Name:</label>
                             <input
@@ -133,7 +133,7 @@ const RegisterRestaurant = () => {
                                 className="form-input"
                             />
                         </div>
-                    </div> */}
+                    </div>
 
                     <div className="menu-items-section">
                         <h3 className="menu-items-heading">Add Menu Items</h3>
